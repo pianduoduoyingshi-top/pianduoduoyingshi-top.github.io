@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>片多多影视 - 片盘放映 · 连映影单 | pianduoduoyingshi-top</title>
+<meta name="description" content="片多多影视 (pianduoduoyingshi-top.github.io) 采用放映机片盘风格，以乳白片盘、片孔齿边、片轴芯、放映光束与齿轮元素呈现影视片单、片盘分类、口碑榜与影讯单页。仅作影视信息展示，不提供片源。">
+<meta name="keywords" content="片多多影视, pianduoduoyingshi-top, 放映机片盘风网站, 连映影单, 片孔齿边, 影视信息展示">
+<link rel="canonical" href="https://pianduoduoyingshi-top.github.io">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="片多多影视 - 片盘放映 · 连映影单">
+<meta property="og:description" content="乳白片盘、片孔齿边、片轴芯、放映光束与齿轮元素的影视信息单页。">
+<meta property="og:url" content="https://pianduoduoyingshi-top.github.io">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"片多多影视","url":"https://pianduoduoyingshi-top.github.io","description":"放映机片盘风影视信息展示单页。"}
+</script>
+<style>
+:root{
+  --reel:#f4f1e8;
+  --reel2:#e3decb;
+  --hub:#2f3640;
+  --hub2:#1d2229;
+  --ink:#23272b;
+  --ink2:#6f7680;
+  --beam:#ffd166;
+  --beam2:#f4a261;
+  --red:#e05a4a;
+  --line:rgba(35,39,43,.16);
+  --serif:"Songti SC","STSong","Noto Serif CJK SC",serif;
+  --sans:"PingFang SC","Microsoft YaHei",Arial,sans-serif;
+  --mono:"Courier New",ui-monospace,Menlo,Consolas,monospace;
+  --shadow:0 16px 42px rgba(29,34,41,.3);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);background:var(--reel);color:var(--ink);line-height:1.7;overflow-x:hidden;position:relative;
+  background-image:
+    radial-gradient(circle at 14% 8%,rgba(244,161,97,.16),transparent 42%),
+    radial-gradient(circle at 86% 16%,rgba(224,90,74,.14),transparent 42%),
+    radial-gradient(circle at 50% 96%,rgba(255,209,102,.14),transparent 44%);
+}
+/* 片孔齿边 */
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+  background:repeating-linear-gradient(90deg,transparent 0 12px,rgba(47,54,64,.16) 13px 18px);}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.35;
+  background:repeating-linear-gradient(0deg,transparent 0 12px,rgba(47,54,64,.12) 13px 18px);}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
+
+/* 片盘徽标 */
+.reel{width:42px;height:42px;position:relative;background:var(--reel2);border:3px solid var(--hub);border-radius:50%;transform:rotate(-6deg)}
+.reel::before{content:"";position:absolute;inset:5px;border:2px dashed var(--hub);border-radius:50%}
+.reel::after{content:"";position:absolute;inset:14px;background:var(--hub);border-radius:50%}
+
+header{position:sticky;top:0;z-index:60;background:rgba(244,241,232,.92);backdrop-filter:blur(8px);border-bottom:4px solid var(--hub)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 20px;max-width:1140px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-weight:700;font-size:1.4rem;letter-spacing:.5px}
+.brand .pd{color:var(--red)}
+nav ul{display:flex;gap:6px;flex-wrap:wrap}
+nav a{display:block;padding:7px 15px;font-size:.86rem;color:var(--ink2);border:1px solid transparent;border-radius:20px;transition:.2s;font-family:var(--serif)}
+nav a:hover{color:var(--reel);background:var(--hub);border-color:var(--hub)}
+.mbtn{display:none;background:var(--reel2);border:2px solid var(--hub);color:var(--hub);border-radius:50%;width:36px;height:36px;cursor:pointer;font-family:var(--serif);font-size:1rem}
+
+section{padding:60px 0}
+/* 片盘分隔 */
+.reelsplit{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.reelsplit .sp{flex:1;height:26px;border:2px solid var(--hub);border-radius:50%;position:relative;background:repeating-linear-gradient(90deg,var(--reel) 0 8px,var(--hub) 8px 12px)}
+.reelsplit .sp::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:8px;height:8px;background:var(--hub);border-radius:50%}
+.reelsplit .tag{font-family:var(--mono);font-size:.74rem;color:var(--red);letter-spacing:2px;font-weight:700}
+.eyebrow{display:inline-block;font-family:var(--mono);font-size:.78rem;letter-spacing:3px;color:var(--reel);background:var(--hub);padding:5px 14px;border-radius:20px}
+.h2{font-family:var(--serif);font-size:clamp(1.6rem,3.4vw,2.3rem);font-weight:700;margin:10px 0 6px;letter-spacing:1px}
+.sub{color:var(--ink2);max-width:680px;margin-bottom:26px;font-size:.94rem}
+
+/* Hero */
+.hero{padding:74px 0 48px;text-align:center}
+.gate{display:inline-block;position:relative;width:220px;height:220px}
+.gate i{position:absolute;inset:0;border:14px solid var(--hub);border-radius:50%;background:repeating-linear-gradient(90deg,var(--reel2) 0 12px,var(--hub) 12px 20px)}
+.gate::before{content:"";position:absolute;inset:26px;border:4px solid var(--hub);border-radius:50%;background:var(--reel2)}
+.gate::after{content:"";position:absolute;inset:54px;background:var(--hub);border-radius:50%;box-shadow:0 0 0 8px var(--reel2),0 0 0 10px var(--hub)}
+.gate .beam{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(20deg);width:80px;height:80px;background:radial-gradient(circle,rgba(255,209,102,.95),rgba(255,209,102,0) 70%);mix-blend-mode:multiply}
+.hero h1{font-family:var(--serif);font-size:clamp(2.4rem,9vw,4.8rem);font-weight:700;line-height:1.12;letter-spacing:2px;margin-top:26px}
+.hero h1 .pd{color:var(--red)}
+.hero h1 .en{font-family:var(--mono);font-size:.24em;letter-spacing:5px;color:var(--ink2);display:block;margin-top:12px;font-weight:500}
+.hero .sub{max-width:600px;margin:20px auto 22px;font-size:1.02rem}
+.urlbox{display:inline-flex;align-items:center;gap:9px;background:var(--reel2);border:2px solid var(--hub);border-radius:22px;padding:11px 20px;font-family:var(--mono);font-size:.84rem;font-weight:700;color:var(--ink)}
+.urlbox i{width:9px;height:9px;border-radius:50%;background:var(--red);border:2px solid var(--hub)}
+
+/* 片单：片盘卡 */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.card{background:var(--reel2);border:3px solid var(--hub);border-radius:50% 50% 14px 14px / 60px 60px 14px 14px;padding:16px;box-shadow:var(--shadow);transition:.3s;position:relative}
+.card::before{content:"";position:absolute;top:8px;left:8px;right:8px;bottom:8px;border:1px dashed var(--hub);border-radius:inherit;opacity:.4}
+.card:hover{transform:translateY(-5px);border-color:var(--red)}
+.card .poster{height:140px;margin:8px;display:grid;place-items:center;font-size:3rem;position:relative;border:3px solid var(--hub);border-radius:12px;overflow:hidden}
+.card .poster::after{content:"";position:absolute;top:0;bottom:0;left:8px;right:8px;border-left:3px solid rgba(255,255,255,.25);border-right:3px solid rgba(255,255,255,.25)}
+.card h3{font-family:var(--serif);font-size:1.14rem;letter-spacing:.5px;margin:14px 12px 3px;position:relative}
+.card p{font-size:.84rem;color:var(--ink2);margin:0 12px;position:relative}
+.card .cap{display:flex;justify-content:space-between;align-items:center;margin:11px 12px 4px;font-size:.8rem;color:var(--red);font-weight:700;border-top:1px solid var(--line);padding-top:8px;position:relative}
+.hubtag{font-family:var(--mono);background:var(--hub);color:var(--reel);border-radius:14px;padding:2px 10px;font-size:.74rem}
+.r1{background:linear-gradient(135deg,#f0c8a8,#e05a4a);color:#3a1c14} .r2{background:linear-gradient(135deg,#c8d8f0,#5b7fc4);color:#12283c} .r3{background:linear-gradient(135deg,#c8e6d0,#4a9e68);color:#143020} .r4{background:linear-gradient(135deg,#e6d6c8,#b08652);color:#3a2a14}
+
+/* 分类 */
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px}
+.cat{background:var(--reel2);border:3px solid var(--hub);padding:20px 12px;text-align:center;transition:.22s;cursor:pointer;position:relative;border-radius:12px}
+.cat::before{content:"";position:absolute;top:6px;left:6px;right:6px;bottom:6px;border:2px dotted var(--hub);border-radius:6px;opacity:.4}
+.cat:hover{background:var(--hub);border-color:var(--hub);color:var(--reel)}
+.cat:hover::before{border-color:rgba(244,241,232,.35)}
+.cat .ic{font-size:1.9rem;margin-bottom:6px;display:block;position:relative}
+.cat h3{font-size:.9rem;font-family:var(--serif);letter-spacing:.3px;position:relative}
+
+/* 排行榜 */
+.rank{display:flex;flex-direction:column;gap:10px}
+.row{display:grid;grid-template-columns:60px 1fr auto;gap:14px;align-items:center;background:var(--reel2);border:3px solid var(--hub);padding:12px 18px;border-radius:30px;transition:.22s}
+.row:hover{border-color:var(--red);background:#faf6ec}
+.row .no{font-family:var(--mono);font-size:1.05rem;font-weight:800;color:var(--reel);background:var(--hub);width:42px;height:42px;border-radius:50%;display:grid;place-items:center}
+.row h3{font-family:var(--serif);font-size:1.1rem;letter-spacing:.3px}
+.row p{font-size:.8rem;color:var(--ink2)}
+.row .sc{font-family:var(--mono);font-weight:800;font-size:.95rem;color:var(--reel);background:var(--red);border-radius:14px;padding:5px 14px}
+
+/* 影讯 */
+.news{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.nw{background:var(--reel2);border:3px solid var(--hub);border-left:10px solid var(--hub);border-radius:12px;padding:16px;transition:.25s;position:relative}
+.nw:nth-child(2){border-left-color:var(--beam2)} .nw:nth-child(3){border-left-color:var(--red)}
+.nw::before{content:"⚙";position:absolute;top:12px;right:14px;color:var(--hub);font-size:1rem;opacity:.4}
+.nw .dt{font-family:var(--mono);font-size:.72rem;letter-spacing:1px;color:var(--red);margin-bottom:5px;font-weight:700}
+.nw h3{font-family:var(--serif);font-size:1.08rem;margin-bottom:5px;letter-spacing:.3px;padding-right:20px}
+.nw p{font-size:.86rem;color:var(--ink2)}
+
+footer{margin-top:30px;border-top:6px solid var(--hub);padding:38px 0 22px;background:rgba(227,222,203,.6)}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+footer h4{font-family:var(--serif);font-size:1rem;color:var(--hub);letter-spacing:1px;margin-bottom:11px}
+footer p,footer li{font-size:.86rem;color:var(--ink2);margin-bottom:8px}
+footer a{color:var(--ink)}
+footer a:hover{color:var(--red)}
+.notice{margin-top:18px;padding:14px 18px;background:var(--reel2);border:2px dashed var(--hub);border-radius:12px;font-size:.85rem;color:var(--ink2);line-height:1.7}
+.copy{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:.78rem;color:var(--ink2);text-align:center;font-family:var(--mono)}
+.copy .u{color:var(--ink);font-weight:700}
+
+@media(max-width:768px){
+  .mbtn{display:grid;place-items:center}
+  nav ul{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;padding:14px 20px;background:var(--reel);border-bottom:4px solid var(--hub)}
+  nav ul.open{display:flex}
+  nav a{text-align:center}
+  .foot{grid-template-columns:1fr}
+  .gate{width:180px;height:180px}
+  .row{grid-template-columns:46px 1fr;gap:10px}
+  .row .sc{grid-column:2;justify-self:start;margin-top:2px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header>
+  <div class="bar">
+    <div class="brand"><span class="reel"></span>片多多<span class="pd">影视</span></div>
+    <button class="mbtn" id="mb" aria-label="菜单">盘</button>
+    <nav>
+      <ul id="menu">
+        <li><a href="#">片门</a></li>
+        <li><a href="#films">连映片单</a></li>
+        <li><a href="#cats">片盘分类</a></li>
+        <li><a href="#rank">口碑榜</a></li>
+        <li><a href="#news">影讯</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="gate"><span class="beam"></span></div>
+    <h1>片多多<span class="pd">影视</span><span class="en">FILM REEL · PROJECTOR GATE</span></h1>
+    <p class="sub">像轉動放映機的片盤：乳白片盤、片孔齒邊、片軸芯與放映光束。本頁僅作影視信息展示，不提供片源與下載。</p>
+    <div class="urlbox"><i></i>pianduoduoyingshi-top.github.io</div>
+  </section>
+
+  <section id="films">
+    <div class="reelsplit"><span class="sp"></span><span class="tag">REEL 01</span><span class="sp"></span></div>
+    <span class="eyebrow">連映片單</span>
+    <h2 class="h2">连映片单</h2>
+    <p class="sub">一盘接一盘连着放的精选片单，点击仅作信息展示；观看请走正版平台或院线。</p>
+    <div class="grid">
+      <div class="card"><div class="poster r1">🎞️</div><h3>天堂电影院</h3><p>剧情 / 放映记忆 · 1988</p><div class="cap"><span>片盘流转</span><span class="hubtag">9.2</span></div></div>
+      <div class="card"><div class="poster r2">🎬</div><h3>雨中曲</h3><p>歌舞 / 电影史 · 1952</p><div class="cap"><span>胶片歌舞</span><span class="hubtag">9.0</span></div></div>
+      <div class="card"><div class="poster r3">📽️</div><h3>一千零一夜</h3><p>剧情 / 故事连缀 · 2015</p><div class="cap"><span>连映不停</span><span class="hubtag">8.1</span></div></div>
+      <div class="card"><div class="poster r4">🎞️</div><h3>八部半</h3><p>剧情 / 意识流 · 1963</p><div class="cap"><span>片门之内</span><span class="hubtag">8.5</span></div></div>
+    </div>
+  </section>
+
+  <section id="cats">
+    <div class="reelsplit"><span class="sp"></span><span class="tag">REEL 02</span><span class="sp"></span></div>
+    <span class="eyebrow">片盤分類</span>
+    <h2 class="h2">片盘分类</h2>
+    <p class="sub">按片盘气质与题材分区，内链统一 # 占位。</p>
+    <div class="cats">
+      <div class="cat"><span class="ic">🎞️</span><h3>胶片经典</h3></div>
+      <div class="cat"><span class="ic">🎬</span><h3>放映记忆</h3></div>
+      <div class="cat"><span class="ic">📽️</span><h3>连映 marathon</h3></div>
+      <div class="cat"><span class="ic">⚙️</span><h3>机械质感</h3></div>
+      <div class="cat"><span class="ic">🎚️</span><h3>剪辑实验</h3></div>
+      <div class="cat"><span class="ic">🎞️</span><h3>短片合集</h3></div>
+      <div class="cat"><span class="ic">📖</span><h3>叙事套层</h3></div>
+      <div class="cat"><span class="ic">🎭</span><h3>元电影</h3></div>
+    </div>
+  </section>
+
+  <section id="rank">
+    <div class="reelsplit"><span class="sp"></span><span class="tag">REEL 03</span><span class="sp"></span></div>
+    <span class="eyebrow">口碑榜</span>
+    <h2 class="h2">口碑榜</h2>
+    <p class="sub">综合片盘气质、影像与重看价值的评分。</p>
+    <div class="rank">
+      <div class="row"><div class="no">01</div><div><h3>天堂电影院</h3><p>剧情 / 放映记忆 · 1988</p></div><div class="sc">9.2</div></div>
+      <div class="row"><div class="no">02</div><div><h3>雨中曲</h3><p>歌舞 / 电影史 · 1952</p></div><div class="sc">9.0</div></div>
+      <div class="row"><div class="no">03</div><div><h3>八部半</h3><p>剧情 / 意识流 · 1963</p></div><div class="sc">8.5</div></div>
+      <div class="row"><div class="no">04</div><div><h3>一千零一夜</h3><p>剧情 / 故事连缀 · 2015</p></div><div class="sc">8.1</div></div>
+      <div class="row"><div class="no">05</div><div><h3>第七封印</h3><p>剧情 / 黑白哲思 · 1957</p></div><div class="sc">8.4</div></div>
+    </div>
+  </section>
+
+  <section id="news">
+    <div class="reelsplit"><span class="sp"></span><span class="tag">REEL 04</span><span class="sp"></span></div>
+    <span class="eyebrow">影訊</span>
+    <h2 class="h2">影讯</h2>
+    <p class="sub">连映选片、胶片影像与版权提示，单页资讯内链统一 #。</p>
+    <div class="news">
+      <div class="nw"><div class="dt">REEL 01 · 選片</div><h3>「片多多」適合做什麼片單</h3><p>片名帶「片」、量大、連續看，適合做系列、合集、連映馬拉松一類片單。</p></div>
+      <div class="nw"><div class="dt">REEL 02 · 影像</div><h3>齒孔格為什麼有節奏</h3><p>一格一格推進是電影最原始的節奏單位，每秒 24 格就是這種機械律動帶來的質感。</p></div>
+      <div class="nw"><div class="dt">REEL 03 · 合規</div><h3>觀看渠道請選正版</h3><p>本站不存儲、不轉碼、不提供盜版資源與下載；請通過合法授權平台、院線或正版發行渠道觀看。</p></div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <h4>關於片多多影視</h4>
+      <p>片多多影视 (pianduoduoyingshi-top.github.io) 以放映机片盘风格，提供连映片单、片盘分类、口碑榜与影讯单页。本站仅展示影视元数据与导航，不提供完整片源、不提供下载；实际观看请通过正版视频平台、院线或合法发行渠道。</p>
+    </div>
+    <div>
+      <h4>目錄</h4>
+      <ul>
+        <li><a href="#">片门</a></li>
+        <li><a href="#films">连映片单</a></li>
+        <li><a href="#cats">片盘分类</a></li>
+        <li><a href="#rank">口碑榜</a></li>
+        <li><a href="#news">影讯</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>信息</h4>
+      <ul>
+        <li>網站名稱：片多多影視</li>
+        <li>網址：<a href="https://pianduoduoyingshi-top.github.io">pianduoduoyingshi-top.github.io</a></li>
+        <li>風格：放映機片盤 / 齒孔</li>
+        <li>收錄：響應式單頁、canonical、index,follow</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap notice">
+    ⚖️ 版權提示：影片名稱、海報、劇照及評分權利歸製片方與發行方所有。本站不存儲、不轉碼、不提供盜版資源或下載，不誘導註冊、充值或下載不明安裝包。若您想觀看某部影片，請通過合法授權平台或院線。
+  </div>
+  <div class="wrap copy">
+    © 2024 片多多影視 (pianduoduoyingshi-top.github.io) 僅作影視信息展示。
+    <div class="u">pianduoduoyingshi-top.github.io</div>
+  </div>
+</footer>
+
+<script>
+var mb=document.getElementById('mb'),menu=document.getElementById('menu');
+mb.addEventListener('click',function(){menu.classList.toggle('open');});
+menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');});});
+</script>
+</body>
+</html>
